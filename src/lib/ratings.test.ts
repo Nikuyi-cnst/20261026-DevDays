@@ -1,5 +1,17 @@
 import { describe, it, expect } from 'vitest';
-import { clampRating, formatStarRating } from './ratings';
+import { clampRating, formatRatingLabel, formatStarRating } from './ratings';
+
+describe('formatRatingLabel', () => {
+    it.each([
+        { rating: 4.2, expected: '4.2 / 5' },
+        { rating: 4.75, expected: '4.75 / 5' },
+        { rating: 0, expected: '0 / 5' },
+        { rating: 5, expected: '5 / 5' },
+        { rating: null, expected: 'No rating yet' },
+    ])('formats $rating as "$expected"', ({ rating, expected }) => {
+        expect(formatRatingLabel(rating)).toBe(expected);
+    });
+});
 
 describe('clampRating', () => {
     it('returns the value unchanged when within range', () => {

@@ -35,6 +35,8 @@ npm run dev
 
 `predev` migrates and seeds the local database first. Then navigate to the [website](http://localhost:4321) to see the site!
 
+Game cards on the home page show each game's rating out of 5 (for example, `4.2 / 5`), or `No rating yet` when its rating is null.
+
 To preview a production build instead:
 
 ```bash
